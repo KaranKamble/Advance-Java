@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+  	  http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="fileLogger" class="com.test.FileLoggerImpl">
+		<property name="pathName" value="demo04.file"></property>
+	</bean>
+	
+	<bean id="consoleLogger" class="com.test.ConsoleLoggerImpl"></bean>
+
+    <bean id = "acc1" class="com.test.AccountServiceImpl">
+		<property name="id" value="11"></property>
+		<property name="type" value="saving"></property>
+		<property name="balance" value="10000.0d"></property>
+		<property name="logger" ref="fileLogger"></property>
+	</bean>
+    
+</beans>
